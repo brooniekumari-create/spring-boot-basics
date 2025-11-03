@@ -1,0 +1,37 @@
+digraph {
+	fontsize=12 nodesep=0.6 rankdir=TB
+	GUIFactory [label="<<interface>>
+GUIFactory
++ createButton(): Button
++ createCheckbox(): Checkbox" shape=record]
+	WindowsFactory [label="WindowsFactory
++ createButton(): WindowsButton
++ createCheckbox(): WindowsCheckbox" shape=record]
+	MacFactory [label="MacFactory
++ createButton(): MacButton
++ createCheckbox(): MacCheckbox" shape=record]
+	Button [label="<<interface>>
+Button
++ render()" shape=record]
+	Checkbox [label="<<interface>>
+Checkbox
++ render()" shape=record]
+	WindowsButton [label="WindowsButton
++ render()" shape=record]
+	WindowsCheckbox [label="WindowsCheckbox
++ render()" shape=record]
+	MacButton [label="MacButton
++ render()" shape=record]
+	MacCheckbox [label="MacCheckbox
++ render()" shape=record]
+	GUIFactory -> WindowsFactory [label=implements arrowhead=onormal]
+	GUIFactory -> MacFactory [label=implements arrowhead=onormal]
+	Button -> WindowsButton [label=implements arrowhead=onormal]
+	Button -> MacButton [label=implements arrowhead=onormal]
+	Checkbox -> WindowsCheckbox [label=implements arrowhead=onormal]
+	Checkbox -> MacCheckbox [label=implements arrowhead=onormal]
+	WindowsFactory -> WindowsButton [label=creates arrowhead=vee style=dashed]
+	WindowsFactory -> WindowsCheckbox [label=creates arrowhead=vee style=dashed]
+	MacFactory -> MacButton [label=creates arrowhead=vee style=dashed]
+	MacFactory -> MacCheckbox [label=creates arrowhead=vee style=dashed]
+}
